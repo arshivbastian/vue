@@ -1,4 +1,4 @@
-<template>
+*/<template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -15,4 +15,17 @@ export default {
     HelloWorld
   }
 }
+</script>
+*/
+<template>
+</div>
+ <BootStrapCarousel></BootStrapCarousel>
+</div>
+</template>
+<script>
+    import BootStrapCarousel from '@/components/BootStrapCarousel.vue';
+ 
+    export default {
+        components: {BootStrapCarousel}
+    }
 </script>
