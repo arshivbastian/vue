@@ -54,7 +54,8 @@ export default {
 }
 #menu {
   width: 460px;
-  margin-left: 32%;
+  //margin-left: 32%;
+  margin:0 auto;
   padding : 15px ;
   background-color: rgba(88, 115, 135, 0.9) ;
   border-radius: 5px 5px 0px 0px ;
