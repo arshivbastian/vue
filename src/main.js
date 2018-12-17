@@ -19,7 +19,6 @@ Vue.use(SuiVue);
 Vue.config.productionTip = false
 
 new Vue({
-  Vue,
   router,
   store,
   render: h => h(App)

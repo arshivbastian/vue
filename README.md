@@ -1,29 +1,7 @@
-# vue
+# a Full guide to run vue.cli
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## what will you learn in this reposetory
+ - create a project with vue.cli  
+ - knowing the files and folders in project  
+ - how to push entire folder of vue project to work with others  
+ - how to add liberaries and frameworks like  Semantic UI / Bootstrp and Jquery etc ...

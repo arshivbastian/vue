@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <div id="nav">
@@ -8,6 +9,16 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+  var Vue ;
+  new Vue({
+    method : ()=> {
+      alert('HELLO');
+    }
+  });
+</script>
+
 
 <style>
 #app {
