@@ -1,5 +1,13 @@
 <template>
-  <div class="about">
-    <h1>Join your Allies to fight against Evil</h1>
+  <div>
+    <chat></chat>
   </div>
 </template>
+
+<script>
+  import chat from '@/components/Chat.vue';
+
+  export default {
+      components: {chat}
+  }
+</script>

@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    message : []
   },
   mutations: {
-
+    saver (sentmessage) {
+      message.push(sentmessage)
+    }
   },
   actions: {
 
