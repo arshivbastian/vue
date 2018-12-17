@@ -1,6 +1,5 @@
-# a Full guide to run vue.cli
 
-## what will you learn in this reposetory
+# what will you learn in this reposetory
  - create a project with vue.cli  
  - knowing the files and folders in project  
  - how to push entire folder of vue project to work with others  
