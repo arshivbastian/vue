@@ -2,8 +2,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div id="menu">
-        <sui-divider horizontal inverted id="menudivider" @click.ctrl="onClick">Menu</sui-divider>
+      <div id="menu" :style="{'margin-bottom': state}">
+        <sui-divider horizontal inverted id="menudivider" @click="menutoggle">Menu</sui-divider>
         <router-link to="/allies"> <img src="./assets/allies.png" /> </router-link> 
         <router-link to="/castel"> <img src="./assets/castel.png" /> </router-link>
         <router-link to="/war"> <img src="./assets/war.png" /> </router-link>
@@ -14,23 +14,23 @@
 </template>
 
 <script>
-// export default {
-//   data: {
-//     state: true
-//   }
-//   methods: {
-//     onClick: function () {
-//       alert('Hello')
-//       if (state == true) {
-        
-//         this.state = false
-//       }
-//       else if (state == false) {
-        
-//         this.state = false
-//       }
-//     }
-// }
+export default {
+  data () {
+    return {
+      state: '-145px'
+    }
+  },
+  methods: {
+    menutoggle () {
+      if (this.state == '-145px') {
+        this.state = '0px'
+      }
+      else if (this.state == '0px') {
+        this.state = '-145px'
+      }
+    },
+  }
+}
 </script>
 
 
@@ -50,6 +50,7 @@
 }
 #menudivider {
   margin-bottom: 20px !important ;
+  cursor: ns-resize;
 }
 #menu {
   width: 460px;
@@ -57,6 +58,7 @@
   padding : 15px ;
   background-color: rgba(88, 115, 135, 0.9) ;
   border-radius: 5px 5px 0px 0px ;
+  transition-duration: 2s;
 }
 #menu img {
   margin-left: 30px;
