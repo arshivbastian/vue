@@ -1,20 +1,38 @@
 
 <template>
   <div id="app">
-    <b-row id="nav" align-h="center">
-      <b-col md="4" offset-md="4">
+    <div id="nav">
+      <div id="menu">
+        <sui-divider horizontal inverted id="menudivider" @click.ctrl="onClick">Menu</sui-divider>
         <router-link to="/allies"> <img src="./assets/allies.png" /> </router-link> 
         <router-link to="/castel"> <img src="./assets/castel.png" /> </router-link>
         <router-link to="/war"> <img src="./assets/war.png" /> </router-link>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-
+// export default {
+//   data: {
+//     state: true
+//   }
+//   methods: {
+//     onClick: function () {
+//       alert('Hello')
+//       if (state == true) {
+        
+//         this.state = false
+//       }
+//       else if (state == false) {
+        
+//         this.state = false
+//       }
+//     }
+// }
 </script>
+
 
 <style>
 #app {
@@ -24,16 +42,23 @@
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
-  margin-bottom: 0;
+  width: 100% ;
+  text-align: center !important;
+  position: fixed ;
+  bottom: 0 ;
+  z-index: 1000 ;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#menudivider {
+  margin-bottom: 20px !important ;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#menu {
+  width: 460px;
+  margin-left: 32%;
+  padding : 15px ;
+  background-color: rgba(88, 115, 135, 0.9) ;
+  border-radius: 5px 5px 0px 0px ;
+}
+#menu img {
+  margin-left: 30px;
 }
 </style>
