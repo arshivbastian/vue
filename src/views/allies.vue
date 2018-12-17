@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Join your Allies to fight against Evil</h1>
   </div>
 </template>

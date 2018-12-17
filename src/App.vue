@@ -2,9 +2,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/semanticPlayGround">Semantic</router-link>
+      <router-link to="/allies"> Allies </router-link> |
+      <router-link to="/castel"> Castel </router-link> |
+      <router-link to="/war"> War </router-link>
     </div>
     <router-view/>
   </div>
