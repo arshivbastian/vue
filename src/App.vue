@@ -10,16 +10,6 @@
   </div>
 </template>
 
-<script>
-  var Vue ;
-  new Vue({
-    method : ()=> {
-      alert('HELLO');
-    }
-  });
-</script>
-
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
