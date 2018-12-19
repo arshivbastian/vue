@@ -1,6 +1,6 @@
 <template>
   <div id="chat" :style="{'height': deviceheight}">
-    
+    <portal-target name="semantic-ui-vue"></portal-target>
       <b-row>
           <b-col cols="4" :style="{'height': deviceheight}"></b-col>
           <b-col cols="8" id="chatplacemother" :style="{'height': deviceheight}">
@@ -24,7 +24,6 @@
               </div>
           </b-col>
       </b-row> 
-    
   </div>
 </template>
 
