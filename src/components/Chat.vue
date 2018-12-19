@@ -2,7 +2,25 @@
   <div id="chat" :style="{'height': deviceheight}">
     <portal-target name="semantic-ui-vue"></portal-target>
       <b-row>
-          <b-col cols="4" :style="{'height': deviceheight}"></b-col>
+          <b-col cols="4" :style="{'height': deviceheight}">     
+            <div class="friendsinfo" v-for="ally in allies" @mouseover="leftoright" @mouseleave="righttoleft">
+              <sui-image class="friendsimg" :src="ally.src" style="display:inline-block"  size="tiny"/>
+              <h2>{{ally.name}}</h2><br>
+              <sui-popup content="Donate" size="mini">
+                <sui-button circular color="violet" slot="trigger" icon="dollar" />
+              </sui-popup>
+              <sui-popup content="Black List" size="mini">
+                <sui-button circular color="red" slot="trigger" icon="ban" />
+              </sui-popup>
+              <sui-popup content="Play a Game" size="mini">
+                <sui-button circular color="yellow" slot="trigger" icon="plus" />
+              </sui-popup>
+              <sui-popup content="Call" size="mini">
+                <sui-button circular color="green" slot="trigger" icon="phone" />
+              </sui-popup>
+            </div>
+          </b-col>
+
           <b-col cols="8" id="chatplacemother" :style="{'height': deviceheight}">
               <div  id="chatplace" >
                 <div id="chathead"></div>
@@ -32,16 +50,29 @@
     data () {
       return {
         deviceheight: '',
-        devicewidth:''
+        devicewidth:'',
+        allies : [
+          {name : 'Fighter Grandma' , src : require('../assets/user/fgm.png')} ,
+          {name : 'Black Star' , src : require('../assets/user/hailblackskins.png')},
+          {name : 'Game Worm' , src : require('../assets/user/letsplay.png')},
+          {name : 'Red Head Slayer' , src : require('../assets/user/redheadslayer.png')},
+          {name : 'Ordinary Her' , src : require('../assets/user/normalwoman.png')}
+        ]
       }
     },
     mounted:function(){
-      this.heighter() //method1 will execute at pageload
+      this.heighter() 
     },
     methods: {
       heighter () {
         this.deviceheight = window.innerHeight+'px';
         this.devicewidth = window.innerWidth+'px';
+      },
+      leftoright(hovered) {
+        hovered.target.style.marginLeft = "0px" ;
+      },
+      righttoleft(hovered) {
+        hovered.target.style.marginLeft = "-280px" ;
       }
     }
   };
@@ -51,6 +82,27 @@
   #chat {
     overflow: hidden;
     background-color: rgba(88, 115, 135, 0.5) ;
+  }
+  .friendsinfo {
+    width: 90%;
+    background-color:  rgba(88, 115, 135, 1) ;
+    margin-top: 10px  ;
+    margin-left: -280px;
+    padding-left: 10px;
+    height: 85px ;
+    border-radius: 0px 30px 70px 0px ;
+    color: beige ;
+    transition-duration: 1s;
+  }
+  .friendsinfo h2 {
+    display:inline-block;
+    margin-left:3%;
+    margin-top: 1% ;
+  }
+  .friendsimg {
+    float: right;
+    margin-top: 1% ;
+    margin-right: 7% ;
   }
   #chatplacemother {
     padding: 10px 0px 10px 10px ;
@@ -64,7 +116,7 @@
   }
   #chathead {
     height: 20%;
-     border-radius: 10px 0px 0px 0px ;
+    border-radius: 10px 0px 0px 0px ;
     background-color:  rgba(88, 115, 135, 1) ;
   }
   #chatbody {
