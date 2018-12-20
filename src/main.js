@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 //jquery global
-import 'jquery'
+window.$ = window.jQuery = require('jquery')
 //ُSemantic Library
 import PortalVue from 'portal-vue'
 import SuiVue from 'semantic-ui-vue'
