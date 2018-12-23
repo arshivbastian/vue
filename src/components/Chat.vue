@@ -56,8 +56,12 @@
               </div>
           </b-col>
       </b-row> 
+      <audio id="hover1" :src= "require('../assets/sounds/hover1.mp3')" ></audio>
+      <audio id="hover2" :src= "require('../assets/sounds/hover2.mp3')" ></audio>
+      <audio id="click" :src= "require('../assets/sounds/click.mp3')" ></audio>
   </div>
 </template>
+
 
 <script>
   export default {
@@ -85,13 +89,29 @@
       },
       leftoright(hovered) {
         hovered.target.style.marginLeft = "0px" ;
+        var hover1 = document.getElementById("hover1");
+        const playPromise = hover1.play();
+        if (playPromise !== null){
+            playPromise.catch(() => { hover1.play(); });
+            return false ;
+        }
       },
       righttoleft(hovered) {
         hovered.target.style.marginLeft = "-280px" ;
+        var hover2 = document.getElementById("hover2");
+        const playPromise = hover2.play();
+        if (playPromise !== null){
+            playPromise.catch(() => { hover2.play(); })
+        }
       },
       keepactive(clicked , clickedname) {
         $(".friendsinfo").css('box-shadow','0px 0px 0px 0px');
         clicked.target.style.boxShadow = "9px 2px 25px 7px rgba(171,164,40,1)";
+        var click = document.getElementById("click");
+        const playPromise = click.play();
+        if (playPromise !== null){
+            playPromise.catch(() => { click.play(); })
+        }
         for (var counter=0 ; counter<this.allies.length ; counter++){
           if (this.allies[counter].name == clickedname ) {
               console.log(this.allies[counter].name);
@@ -108,6 +128,7 @@
   #chat {
     overflow: hidden;
     background-color: rgba(88, 115, 135, 0.5) ;
+    padding-top: 4% ;
   }
   .friendsinfo {
     width: 90%;
@@ -136,27 +157,28 @@
     box-shadow: 0px 0px 0px 0px !important ;
   }
   #chatplacemother {
-    padding: 10px 0px 10px 10px ;
-  }
-  #chathead {
-    padding: 10px ;
+    padding: 0px 0px 10px 0px ;
   }
   #chatplace {
-    height: 88%;
+    height: 80%;
     border-radius: 10px 0px 0px 10px ;
     -webkit-box-shadow: -7px 6px 22px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: -7px 6px 22px 1px rgba(0,0,0,0.75);
     box-shadow: -7px 6px 22px 1px rgba(0,0,0,0.75);
   }
   #chathead {
-    height: 20%;
+    padding: 5px 0px 0px 10px ;
+    height: 17%;
     border-radius: 10px 0px 0px 0px ;
     background-color:  rgba(88, 115, 135, 1) ;
   }
   #chatbody {
-    height: 70%;
+    height: 72%;
+    background-position-x: 0% !important;
+    background-position-y: 0% !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 240% ;
     background-image: url("../assets/chatbg.jpg");
-    background-repeat: repeat;
   }
   .ui.input {
     font-size: 1em;
