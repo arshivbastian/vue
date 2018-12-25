@@ -38,9 +38,15 @@
                     <sui-button circular color="green" slot="trigger" icon="phone" />
                   </sui-popup>
                 </div>
-                <div id="chatbody"></div>
+                <div id="chatbody">
+                    <div v-if="chatname!=='Not Picked'" v-for="chat in chats">
+                      <div v-if="chatname === chat.room"> 
+                        <div v-if="chat.from === 'true'" style="margin:5px 0px 0px 8px"><sui-button  color="green" :content="chat.txt"/></div>
+                        <div v-else style="text-align:right ; margin:5px 15px 0px 0px"><sui-button color="red" :content="chat.txt"/></div>
+                      </div>
+                    </div>
+                </div>
                 <div id="chatinput">
-                  <template lang="html">
                     <sui-input placeholder="Type Your Message" icon="paper plane" style="width:80%;height:100%!important" />
                     <sui-popup content="Share Your feeling" size="mini">
                       <sui-button icon="smile" slot="trigger" name="smile"/>
@@ -51,7 +57,6 @@
                     <sui-popup content="Share Your Victories" size="mini">
                       <sui-button icon="share" slot="trigger" name="share"/>
                     </sui-popup>
-                  </template>
                 </div>
               </div>
           </b-col>
@@ -108,19 +113,25 @@
         $(".friendsinfo").css('box-shadow','0px 0px 0px 0px');
         clicked.target.style.boxShadow = "9px 2px 25px 7px rgba(171,164,40,1)";
         var click = document.getElementById("click");
+        window.chosenchat = clickedname ;
         const playPromise = click.play();
         if (playPromise !== null){
             playPromise.catch(() => { click.play(); })
         }
         for (var counter=0 ; counter<this.allies.length ; counter++){
           if (this.allies[counter].name == clickedname ) {
-              console.log(this.allies[counter].name);
               this.chatname = this.allies[counter].name ;
               break;
           }
         }
       },
+    },
+    computed : {
+      chats() {
+        return this.$store.state.chats ;
+      }
     }
+
   };
 </script>
 
@@ -179,6 +190,8 @@
     background-repeat: no-repeat !important;
     background-size: 100% 240% ;
     background-image: url("../assets/chatbg.jpg");
+    overflow-y: scroll;
+    padding-bottom : 5px 
   }
   .ui.input {
     font-size: 1em;
